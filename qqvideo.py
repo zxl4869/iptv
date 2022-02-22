@@ -85,9 +85,6 @@ for a in wwe_list:
     txt += f'{name},{link}\n'
 print(txt)
 
-with open('tv.txt', 'r', encoding='utf-8') as f:
-    t = f.read()
-txt = t.split('○WWE○,#genre#\n')[0] + '○WWE○,#genre#\n' + txt
 with open('tv.txt', 'w') as f:
     f.write(txt)   
 
