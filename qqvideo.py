@@ -80,7 +80,7 @@ with open('tv.txt', 'w') as f:
 
 txt = txt + '\n○WWE○,#genre#\n'
 for a in wwe_list:
-    name = a[0]
+    name = a[0].replace(' ','-')
     link = a[1]
     txt += f'{name},{link}\n'
 print(txt)
