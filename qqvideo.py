@@ -88,4 +88,20 @@ print(txt)
 with open('tv.txt', 'w') as f:
     f.write(txt)   
 
-
+with open('test.m3u', 'r', encoding='utf-8') as f:
+    test_m3u = f.read()
+ts = test_m3u.split('#EXTINF:') 
+txt='#EXTM3U\n'
+for tt in ts:
+    if 'genre' in tt:
+        continue
+    try:
+        tittle = tt.split('tvg-name="')[-1].split('"')[0]
+        tmp = tt.split('\n')[0]
+        if tittle in name_list:
+            link = mini_dict[tittle][0]
+            txt = txt + f'#EXTINF:{tmp}\n{link}\n'    
+    except:
+        continue
+with open('tv.m3u', 'w') as f:
+    f.write(txt)  
