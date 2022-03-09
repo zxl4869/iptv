@@ -22,6 +22,9 @@ with open('all_links.json', 'r', encoding='utf-8') as f:
     all_links = json.loads(f.read())
 with open('mini_dict.json', 'r', encoding='utf-8') as f:
     mini_dict = json.loads(f.read())
+with open('final_dict.json', 'r', encoding='utf-8') as f:
+    final_dict = json.loads(f.read())
+
 i = 10
 name_list = ['CCTV1', 'CCTV2', 'CCTV3', 'CCTV4','CCTV5', 'CCTV5+', 'CCTV6', 'CCTV7', 'CCTV8', 'CCTV9', 'CCTV10', 'CCTV11', 'CCTV12', 'CCTV13', 'CCTV14', 'CCTV15', 'CCTV17', 'CCTV4K','CCTV8K', 'CCTV16', '湖南卫视', '浙江卫视', '江苏卫视', '北京卫视', '东方卫视', '安徽卫视', '广东卫视', '深圳卫视', '辽宁卫视',  '山东卫视', '天津卫视', '重庆卫视', '东南卫视', '甘肃卫视',  '贵州卫视', '河北卫视', '黑龙江卫视', '河南卫视', '湖北卫视', '江西卫视', '吉林卫视',   '四川卫视', '延边卫视' , '金鹰卡通', '风云足球', 'CHC高清电影',  'CHC动作电影',  '风云音乐', '第一剧场', '风云剧场', '世界地理', '怀旧剧场', '兵器科技', '女性时尚', 'CCTV-娱乐', 'CCTV-戏曲', 'CCTV-电影', '高尔夫网球']
 
