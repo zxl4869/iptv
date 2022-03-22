@@ -81,8 +81,12 @@ def get_name(name_txt):
             name = 'CCTV'+ numbers[0].strip("-") if len(numbers)>0 else ''
     return name
 import re
-with open('final_dict.json', 'r', encoding='utf-8') as f:
-    final_dict = json.loads(f.read())
+final_dict = {}
+try:
+    with open('final_dict.json', 'r', encoding='utf-8') as f:
+        final_dict = json.loads(f.read())
+except:
+    pass
 
 def url_order_score(link):
     score = 0
