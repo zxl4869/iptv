@@ -13,6 +13,10 @@ def test_latensy(link):
     cap.release()
     if frame is None:
         return 1500000
+    (h,w,c) = frame.shape
+    if h<1000:
+        latency = latency + 1500000
+  
 
     print(latency)
     
@@ -32,11 +36,12 @@ i = 10
 name_list = ['CCTV1', 'CCTV2', 'CCTV3', 'CCTV4','CCTV5', 'CCTV5+', 'CCTV6', 'CCTV7', 'CCTV8', 'CCTV9', 'CCTV10', 'CCTV11', 'CCTV12', 'CCTV13', 'CCTV14', 'CCTV15', 'CCTV17', 'CCTV4K','CCTV8K', 'CCTV16', '湖南卫视', '浙江卫视', '江苏卫视', '北京卫视', '东方卫视', '安徽卫视', '广东卫视', '深圳卫视', '辽宁卫视',  '山东卫视', '天津卫视', '重庆卫视', '东南卫视', '甘肃卫视',  '贵州卫视', '河北卫视', '黑龙江卫视', '河南卫视', '湖北卫视', '江西卫视', '吉林卫视',   '四川卫视', '延边卫视' , '金鹰卡通', '风云足球', 'CHC高清电影',  'CHC动作电影',  '风云音乐', '第一剧场', '风云剧场', '世界地理', '怀旧剧场', '兵器科技', '女性时尚', 'CCTV-娱乐', 'CCTV-戏曲', 'CCTV-电影', '高尔夫网球']
 
 for name in mini_dict:
+    name_list = []
     for link in mini_dict[name]:
         print('check:'+link+"-"+name+'-',len(mini_dict[name]))
         lat = test_latensy(link)
         if int(lat)>9000:
-            mini_dict[name].remove(link)
+        
             all_links[link].append(int(lat))
             all_links[link] = all_links[link][-5:]
             i+=1
@@ -47,6 +52,9 @@ for name in mini_dict:
                     f.write(json.dumps(mini_dict))
             i = 0
             print(lat)
+        else:
+            name_list.append(link)
+    mini_dict[name] = name_list
 
 
 for name in final_dict:
